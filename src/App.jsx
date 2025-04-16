@@ -2,15 +2,19 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 const Card = ({title}) => {
+  const[count , setCount]=useState(0)
   const [hasLiked , setHasliked] = useState(false);
   useEffect(() => {
     console.log(`${title} has been liked: ${hasLiked}`);
-  }, [hasLiked, title]);
+  }, [hasLiked]);
+
+
+
   
 
   return (
-    <div className='card'> 
-      <h2> {title}</h2>
+    <div className='card' onClick={()=> setCount(count+1)}> 
+    <h2>{title} <br /> {count}</h2>
       <button onClick={()=> setHasliked(true)}>
       {hasLiked ? '❤️ Liked' : '🤍 Like'}
      
